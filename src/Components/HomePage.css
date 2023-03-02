@@ -1,0 +1,45 @@
+.mainContainer{
+    background-color: yellow;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+}
+
+.aside{
+    width: 25vw;
+    background-color: yellowgreen;
+    height: 100vh;
+    border: 2px solid black;
+    border-radius: 12px;
+}
+
+.bodycontainer{
+    width: 75vw;
+    background-color: aquamarine;
+    height: 100vh;
+}
+.header{
+    background-color: blue;
+    height: 15vh;
+    border: 2px solid black;
+    border-radius: 12px;
+}
+.contentbody{
+    background-color: blueviolet;
+    height: 85vh;
+    border: 2px solid black;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+}
+table, th{
+    border: 1px solid;
+    border-collapse: collapse;
+    width: 70vw;
+    background-color: rgb(96, 117, 211);
+    height: 24px;
+    margin: 4px;
+    
+  }
