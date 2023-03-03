@@ -16,7 +16,7 @@ const Header = () =>{
                     </div>
                     <div>
                         <small><p>Name</p></small>
-                        <small><p>Super Admin</p></small>
+                        <small><p>Super admin</p></small>
                         
                     </div>
                 </div>
