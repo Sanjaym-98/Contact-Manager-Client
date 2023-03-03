@@ -2,23 +2,35 @@ import React, { useContext } from 'react';
 import { parse } from "papaparse"
 import axios from 'axios';
 import { GlobalContext } from './HomePage';
-import "./Import.css"
+import "./cards.css"
 
 const ImportCard = (props) => {
-    const { setInvokeImport } = useContext(GlobalContext)
+    const { setInvokeImport, fetchContacts } = useContext(GlobalContext)
+    const token = JSON.parse(localStorage.getItem("token"))
 
-    const handleCSVFile = (e) => {
-        console.log("droppeedd")
+    const handleCSVFile=(e)=>{
         e.preventDefault()
         setInvokeImport(false)
-        // Array.from(e.dataTransfer.files).map(async (data) => {
-        //     let text = await data.text()
-        //     //npm install papaparse
-        //     let result = parse(text, { header: true })
+        Array.from(e.dataTransfer.files).map(async (data)=>{
+            let text = await data.text()
+            //npm install papaparse
+            let result = parse(text, {header:true})
+            console.log(result)
             
-
-
-        // })
+            axios('https://localhost:5000/app/v1/contacts',{
+            method:"post",
+            headers:{
+                "Authorization":token
+            },
+            data:result.data
+        })
+        .then((res)=>{
+            console.log(res)
+            fetchContacts()
+        }).catch(e=>{
+            console.log(e)
+        })
+        })   
     }
     const handleCancel = () => {
         setInvokeImport(false)
@@ -37,6 +49,8 @@ const ImportCard = (props) => {
             <div>
                 <input type="file" onChange={(e) => { console.log(e.target) }} style={{ display: 'none' }} />
             </div>
+            <i className="fa fa-upload fa-5x text-primary "></i>
+
             <div>
                 <button className='cancelbtn' onClick={handleCancel}>Cancel</button>
             </div>

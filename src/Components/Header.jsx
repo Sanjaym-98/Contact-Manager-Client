@@ -7,22 +7,23 @@ const Header = () =>{
     const {setInvokeDelete} = useContext(GlobalContext)
     return(
         <div className="">
-            <div>
-                <input type="text" placeholder="Enter your search" />
-            </div><br></br>
-            <div className="headerbody">
-                <input type="date" />
-                
-                <select id="filter">
-                    <option>Filter</option>
-                </select>
-                <button onClick={() => {
-                    setInvokeDelete(false)
-                    setInvokeImport(true)}}> Import</button>
-                <button onClick={() => {
-                    setInvokeImport(false)
-                    setInvokeDelete(true)}}>Delete</button>
+            <div className="headercontainer">
+                <h3>Total Contacts</h3>
+                <input type="text"  placeholder="Search your mail here"/>
+                <div className="usercontainer">
+                    <div>
+                        <img className="headerimage" src=""  alt="img"/>
+                    </div>
+                    <div>
+                        <small><p>Name</p></small>
+                        <small><p>Super Admin</p></small>
+                        
+                    </div>
+                </div>
             </div>
+        <hr/>
+
+            
         </div>
     )
 }

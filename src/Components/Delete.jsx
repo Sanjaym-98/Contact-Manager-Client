@@ -1,28 +1,43 @@
 import React, { useContext } from 'react';
 
 import { GlobalContext } from './HomePage';
-import "./Import.css"
+import axios from 'axios';
+import "./cards.css"
 
 const DeleteCard = (props) => {
-    const { setInvokeDelete } = useContext(GlobalContext)
+    const {deleteArr, setInvokeDelete , fetchContacts } = useContext(GlobalContext)
+    // const {deleteArr, setInvokeDeleteCard, getData} = useContext(GlobalContext)
+    const token = JSON.parse(localStorage.getItem("token"))
+
+    const handleDelete=async()=>{
+       console.log(deleteArr)
+        setInvokeDelete(false);
+            axios('https://localhost:5000/app/v1/contacts', {
+            method:"delete",
+            headers:{
+                "Content-Type":"Application/json",
+                "Authorization":token
+            },
+            data:deleteArr
+        })
+        .then((res)=> fetchContacts())
+        .catch((e)=>console.log(e))
+        }
 
     
     const handleCancel = () => {
         setInvokeDelete(false)
     }
     return (
-        <div id='popupCard' className='popupCard'>
-            
+        <div id='popupCard' className='popup-card'>
             <div>
-                
-                <h4>Are you sure to delete Files..</h4>
+                <h4 className='text-danger'>Delete Files</h4>
             </div>
+            <i className='fa fa-trash text-warning fa-5x'></i>
             <div>
-                <input type="file" onChange={(e) => { console.log(e.target) }} style={{ display: 'none' }} />
+                <button className='btn btn-danger px-5' onClick={handleCancel}>OK</button>
             </div>
-            <div>
-                <button className='cancelbtn' onClick={handleCancel}>Cancel</button>
-            </div>
+                    
         </div>
     );
 }

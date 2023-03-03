@@ -9,7 +9,7 @@
 
 .aside{
     width: 25vw;
-    background-color: yellowgreen;
+    background-color: rgb(184, 234, 239);
     height: 100vh;
     border: 2px solid black;
     border-radius: 12px;
@@ -17,18 +17,17 @@
 
 .bodycontainer{
     width: 75vw;
-    background-color: aquamarine;
+    background-color: whitesmoke;
     height: 100vh;
 }
-.header{
+/* .header{
     background-color: blue;
-    height: 15vh;
+    height: 30vh;
     border: 2px solid black;
     border-radius: 12px;
-}
+} */
 .contentbody{
-    background-color: blueviolet;
-    height: 85vh;
+    background-color: white;
     border: 2px solid black;
     border-radius: 12px;
     display: flex;
