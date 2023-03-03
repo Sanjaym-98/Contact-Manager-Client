@@ -1,0 +1,16 @@
+.header-sub-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+.header-sub-container>button{
+    margin: 10px;
+}
+
+
+/* Table css */
+
+.table-header{
+    background-color: rgb(75, 201, 201);
+}

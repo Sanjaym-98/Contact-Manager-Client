@@ -1,0 +1,64 @@
+.headerbody{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin: 10px;
+}
+input{
+    border: 2px solid black;
+    border-radius: 6px;
+    background-color: white;
+    height: 28px;
+    border-radius: 6px;
+
+}
+button{
+    border-radius: 6px;
+    padding: 4px;
+    width: 68px;
+    background-color: white;
+    margin-left: 6px;
+    margin-right: 6px;
+    color: black;
+    height: 34px;
+}
+#filter{
+    width: 64px;
+    border: 2px solid black;
+    background-color: white;
+    height: 30px;
+    border-radius: 6px;
+
+}
+.header-sub-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+.header-sub-container>button{
+    margin: 10px;
+}
+
+.headercontainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    color: grey;
+    padding: 6px;
+}
+.usercontainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+.headerimage{
+    background-color: lightgrey;
+    padding: 2px;
+    border-radius: 150px;
+    border: 1px solid lightgrey;
+    font-size: 32px;
+}

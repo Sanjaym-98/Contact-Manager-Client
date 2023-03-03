@@ -1,0 +1,31 @@
+#popupCard{
+    width: 20vw;
+    height: 30vh;
+    background-color: whitesmoke;
+    border-radius: 10px;
+    box-shadow: 10px 10px 20px gray,
+                -10px -10px 20px gray;
+    border: 4px solid gray;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    position: absolute;
+    padding-top: 40px;
+    margin-top: 30vh;
+    margin-left: 45vw;
+    color: #2DA5FC;
+    text-decoration: underline;
+    background: #FFFFFF;
+border-radius: 10px;
+    
+}
+
+.cancelbtn{
+    background: #2DA5FC;
+border-radius: 5px;
+}
+
+
+
