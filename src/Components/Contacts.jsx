@@ -1,10 +1,17 @@
 import React, { useContext } from "react";
 import { GlobalContext } from "./HomePage";
 import "./contacts.css"
-
+import IosShareIcon from '@mui/icons-material/IosShare';
+import FilterListSharpIcon from '@mui/icons-material/FilterListSharp';
+import { red, blue, grey } from '@mui/material/colors';
+import DeleteOutlineSharpIcon from '@mui/icons-material/DeleteOutlineSharp';
+import ModeEditOutlinedIcon from '@mui/icons-material/ModeEditOutlined';
+import CalendarMonthSharpIcon from '@mui/icons-material/CalendarMonthSharp';
+import ExpandMoreSharpIcon from '@mui/icons-material/ExpandMoreSharp';
+import ImportExportSharpIcon from '@mui/icons-material/ImportExportSharp';
 const Contacts = () => {
 
-    const { setInvokeImport, contactsArr, setContactsArr, setDeleteArr, setInvokeDelete, handleDeleteMany } = useContext(GlobalContext)
+    const { setInvokeImport, contactsArr, setContactsArr, setDeleteArr, setInvokeDelete, handleDeleteMany, handleDelete } = useContext(GlobalContext)
 
     const handleCheckbox = (e) => {
         const { id, checked } = e.target
@@ -22,28 +29,52 @@ const Contacts = () => {
         <div>
             <>
                 <div className="headerbody">
-                    <input type="date" />
+                    <div className="btncontainers">
+                        <div className="leftBtns">
+                            <div className="headerCmn decH">
+                                <CalendarMonthSharpIcon sx={{ fontSize: 22 }}></CalendarMonthSharpIcon>
+                                <p className="calender">  Select Date</p>
+                                <ExpandMoreSharpIcon></ExpandMoreSharpIcon>
+                            </div>
+                            <div className="headerCmn decH">
+                                <FilterListSharpIcon></FilterListSharpIcon>
+                                <p> Filter |</p>
+                                <ExpandMoreSharpIcon></ExpandMoreSharpIcon>
+                            </div>
+                        </div>
+                        <div className="rightBtns">
+                            <div className="headerCmn decH" onClick={() => {
+                                setInvokeDelete(false)
+                                setInvokeImport(true)
 
-                    <select id="filter">
-                        <option>Filter</option>
-                    </select>
-                    <div className="belowHeader">
-                        <button onClick={() => {
-                            setInvokeDelete(false)
-                            setInvokeImport(true)
-                        }}> Import</button>
-                        <button onClick={() => {
-                            setInvokeImport(false)
-                            setInvokeDelete(true)
-                            handleDeleteMany()
-                        }}>Delete</button>
-                        <button>Export</button>
+                            }}>
+                                <ImportExportSharpIcon></ImportExportSharpIcon>
+                                <p className="headBtn" > Import</p>
+                            </div>
+                            <div className="headerCmn decH" onClick={() => {
+                                setInvokeImport(false)
+                                // setInvokeDelete(true)
+                                handleDeleteMany()
+                            }}>
+                                <DeleteOutlineSharpIcon></DeleteOutlineSharpIcon>
+                                <p className="headBtn" > Delete</p>
+                            </div>
+                            <div className="headerCmn decH">
+                                <IosShareIcon></IosShareIcon>
+                                <p className="headBtn" >Export</p>
+
+                            </div>
+                        </div>
+
                     </div>
+
+
                 </div>
+
             </>
             <>
 
-                <table className='table table-striped'>
+                <table id="tableh" className='table table-striped'>
                     <thead className='table-header text-bg-secondary'>
                         <tr className='danger'>
                             <th>
@@ -76,14 +107,26 @@ const Contacts = () => {
                                         <td>{data?.designation}</td>
                                         <td>{data?.company}</td>
                                         <td>{data?.industry}</td>
-                                        <td>{data?.email}</td>
-                                        <td>{data?.phonenumber}</td>
+                                        {/* <td>{data?.email}</td> */}
+                                        <td class="tooltip">{data?.email}
+                                            <span class="tooltiptext">{data?.email}</span>
+                                        </td>                                        <td>{data?.phonenumber}</td>
                                         <td>{data?.country}</td>
-                                        <td><button className='btn' id={data._id} onClick={(e) => {
+                                        {/* <td><button className='btn' id={data._id} onClick={(e) => {
                                             setInvokeDelete(true)
                                             setDeleteArr([data._id])
                                         }
-                                        }><i className='fa fa-trash m-1 text-danger'></i></button></td>
+                                        }><i className='fa fa-trash m-1 text-danger' onClick={() =>{handleDelete()}}></i></button></td> */}
+                                        <td><span></span>
+                                            <button className='btn' id={data._id} >
+                                                <ModeEditOutlinedIcon sx={{ fontSize: 18, color: blue[300] }}></ModeEditOutlinedIcon> <hr />
+                                                <DeleteOutlineSharpIcon sx={{ fontSize: 20, color: red[300] }} onClick={(e) => {
+                                            setInvokeDelete(true)
+                                            setDeleteArr([data._id])
+                                        }
+                                        }  className='sucess' />
+
+                                            </button></td>
                                     </tr>
                                 )
 

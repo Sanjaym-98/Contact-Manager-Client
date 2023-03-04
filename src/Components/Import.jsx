@@ -2,10 +2,14 @@ import React, { useContext } from 'react';
 import { parse } from "papaparse"
 import axios from 'axios';
 import { GlobalContext } from './HomePage';
-import "./cards.css"
+import {blue } from '@mui/material/colors';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import NoteAddIcon from '@mui/icons-material/NoteAdd';
+import Button from '@mui/material/Button';
+import "./Import.css"
 
 const ImportCard = (props) => {
-    const { setInvokeImport, fetchContacts } = useContext(GlobalContext)
+    const {invSuc, setInvSuc, setInvokeImport, fetchContacts } = useContext(GlobalContext)
    const token = JSON.parse(localStorage.getItem("token"))
 
     const handleCSVFile=(e)=>{
@@ -27,6 +31,7 @@ const ImportCard = (props) => {
         })
         .then((res)=>{
             console.log(res)
+            setInvSuc(true)
             fetchContacts()
         }).catch(e=>{
             console.log(e)
@@ -43,9 +48,13 @@ const ImportCard = (props) => {
             <div>
                 <div>
                     <p className='icon'>
+                        
+                        <NoteAddIcon sx={{ fontSize: 50 }} color="primary" className='icon' />
                     </p>
                 </div>
-                <h4>drag & drop file here</h4>
+                <h3>Import File</h3>
+                <h4>Drag & Drop CSV
+                    <br/> File here</h4>
             </div>
             <div>
                 <input type="file" onChange={(e) => { console.log(e.target) }} style={{ display: 'none' }} />

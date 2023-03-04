@@ -32,6 +32,7 @@
     z-index: 2;
     width: 60vw;
     height: 40vh;
+
 }
 .signup-form-container{
     background: #d6ecf3;
@@ -48,12 +49,15 @@
     border: 1px solid;
     border: 1px solid #E2E2E2;
     width: 100%;
+    margin-top: 8px;
+
 }
 .signUp{
     border: none;
     background-color:#d6ecf3 ;
     margin: 0em 2em;
     width: 100%;
+    margin-top: 8px;
 }
 .signUp:hover{
     border: 1px solid #E2E2E2;
@@ -113,6 +117,9 @@
 .inputBox{
     width: 100%;
     position:relative;
+    margin-bottom: 4px;
+    height: 28px;
+
 }
 .visibility{
     position: absolute;
@@ -121,8 +128,8 @@
 }
 .icons{
     position: absolute;
-    left: 3%;
-    top: 20%;
+    left: 31%;
+    top: 6%;
 }
 
 .m-2 {

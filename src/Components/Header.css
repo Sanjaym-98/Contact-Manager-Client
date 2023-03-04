@@ -6,11 +6,12 @@
     margin: 10px;
 }
 input{
-    border: 2px solid black;
+    border: 0px;
     border-radius: 6px;
     background-color: white;
-    height: 28px;
+    height: 34px;
     border-radius: 6px;
+    
 
 }
 button{
@@ -47,13 +48,17 @@ button{
     justify-content: space-between;
     align-items: center;
     color: grey;
-    padding: 6px;
+    padding: 2px;
+    padding-left: 10px;
+    padding-left: 10px;
 }
 .usercontainer{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
+    margin-right: 14px;
+    color: rgb(52, 49, 49);
 }
 .headerimage{
     background-color: lightgrey;
@@ -61,4 +66,17 @@ button{
     border-radius: 150px;
     border: 1px solid lightgrey;
     font-size: 32px;
+}
+h3{
+    color: grey;
+    font-size: 28px;
+}
+.searchdiv{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 2px solid grey;
+    width: 30vw;
+    background-color: white;
+    border-radius: 10px;
 }

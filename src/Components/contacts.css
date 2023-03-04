@@ -1,16 +1,130 @@
+
+
+/* Table css */
+
+
 .header-sub-container{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
+
 }
 .header-sub-container>button{
     margin: 10px;
 }
 
 
-/* Table css */
+
+tbody >  :nth-child(odd){
+    background-color: #d3e7f5;
+    color: rgb(51, 48, 48);
+}
+tbody >  :nth-child(even){
+    background-color: whitesmoke;
+    color: rgb(51, 48, 48);
+}
 
 .table-header{
-    background-color: rgb(75, 201, 201);
+    background-color: #B2DFFF;
+}
+table, th {
+    border: 1px solid;
+    border-collapse: collapse;
+    width: 70vw;
+    background-color: rgb(117 170 218);
+    height: 24px;
+    margin: 4px;
+    padding: 4px;
+}
+tbody tr{
+    border-radius: 10px;
+}
+tbody .btn:nth-child(odd){
+    background-color: #e3f2fc;
+}
+
+#tableh{
+    width: 75vw;
+}
+.calender{
+    color: black;
+    font-size: 16px;
+}
+.headerCmn{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    color: black;
+    border: 1px solid lightgrey;
+    width: 9rem;
+    border-radius: 12px;
+    background-color: whitesmoke;
+    margin-left: 4px;
+    margin-right: 4px;
+}
+.btncontainers{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.headBtn{
+    border: 0px;
+    background-color: whitesmoke;
+    
+}
+.leftBtns{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: left;
+}
+.rightBtns{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+}
+.decH{
+    height: 34px;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: white;
+    color: rgb(48, 110, 180);
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+  
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+  }
+  
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+  }
+.btn{
+    border: 0px;
+    background-color: whitesmoke;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+}
+table hr{
+    height: 16px;
+    background-color: black;
+    width: 1px;
 }

@@ -1,0 +1,92 @@
+.side {
+    width: 15vw;
+    height: 100vh;
+    left: 0px;
+    top: 0px;
+    background: #cef3ff;
+    position: relative;
+  }
+  
+  .side-upper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  .logo {
+    color: #0884ff;
+    margin-top: 1.75rem;
+    margin-left: 1.5rem;
+  }
+  
+  .side-dashboard {
+    margin-left: 2.688rem;
+    margin-top: 3.25rem;
+    margin-bottom: 2.188rem;
+    color: #181818;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    margin-right: 18px;
+  }
+  .total {
+    margin-left: 0.5rem;
+    color: #ffffff;
+  }
+  .line {
+    border: 2px solid #ffffff;
+    margin-left: 0.8rem;
+    padding-bottom: 0.3rem;
+    height: 18px;
+  }
+  .dash {
+    margin-left: 0.688rem;
+  }
+  .side-dashboard > h4 {
+    color: #181818;
+  }
+  
+  
+  .side-totalContact {
+    background: #2da5fc;
+    border-radius: 0.5em;
+    margin:1rem;
+  }
+  
+  .total-contact {
+    color: #ddd;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 12vw;
+  }
+  .logout-div{
+      width: 100%;
+      position: absolute;
+      bottom: 5%;
+      cursor: pointer;
+      border-top: 2px solid rgb(255, 255, 255);
+      padding:auto;
+      text-align: center;
+  }
+  .logout-div:hover{
+    border-top: 2px solid aquamarine;
+  }
+  .log-out-cont{
+    min-width: 10px;
+    margin: auto;
+    margin-top:10%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    font-size: 20px;
+  }
+  .logouticon{
+    margin: 10px;
+    margin-right: 1px;
+  }
