@@ -12,7 +12,7 @@ const DeleteCard = (props) => {
     const handleDelete=async()=>{
        console.log(deleteArr)
         setInvokeDelete(false);
-            axios('https://localhost:5000/app/v1/contacts', {
+            axios('https://localhost:5000/api/v1/contacts', {
             method:"delete",
             headers:{
                 "Content-Type":"Application/json",

@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {useNavigate} from 'react-router-dom'
 import axios from 'axios';
-import "./SignUp.css"
+import './SignUp.css';
 import dontsPic from'./images/Group 100.png'
 import { Link } from 'react-router-dom';
 import EmailIcon from '@mui/icons-material/Email';
@@ -10,17 +10,17 @@ import LockIcon from '@mui/icons-material/Lock';
 
 
 const Signup =(props)=> {
-  const navigate = useNavigate()
+//   const navigate = useNavigate()
   const [data, setData] = useState({email:"",password:"", confirmPassword:""}) 
   const [confirmPassword, setCofirmPassword] = useState("")
   const [valid, setValid] = useState(false)
   const [message, setMessage] = useState({status:"", message:""})
-  useEffect(()=>{
-const getUserDetails = JSON.parse(localStorage.getItem("token"))
-if(getUserDetails){
-    navigate("/main")
-}
-},[])
+//   useEffect(()=>{
+//     const getUserDetails = JSON.parse(localStorage.getItem("token"))
+// if(getUserDetails){
+//     navigate("/main")
+// }
+// },[])
   const handleSubmit=async(e)=>{
     e.preventDefault()
     if(confirmPassword=== data.password){
@@ -29,25 +29,23 @@ if(getUserDetails){
             setValid(true)
         }
         else{
-            axios.post('https://localhost:5000/api/v1/register', data)
+            axios.post('http://localhost:5000/api/v1/register', data)
+            
             .then(result=>{
+                console.log(data)
+                console.log(result)
                 setData({email:"", password:""})
                 setCofirmPassword("")
-               navigate('/')
+           
             }).catch((e)=>{
-                setMessage(e?.response?.data)
+             
+                console.log(e);
                 setValid(true)
             }) 
         }
        
     }
-    else{
-        setMessage({status:"Note!",message:"Password and Confirm Password doesn't matched"})
-        setValid(true)
-    }
-    
-     
-     
+ 
 }
     return (
         <React.Fragment>
@@ -83,6 +81,7 @@ if(getUserDetails){
                                                     </div>
                                                     <button className='signin m-2 p-1 rounded-2'>Sign Up</button>
                                                     <Link to={'/'}><button className='signUp m-2 p-1 rounded-2'>Sign In</button></Link>
+                                                    
                                                 </form>
                                             </div>
                                         </div>
@@ -101,14 +100,6 @@ if(getUserDetails){
                 
             </section>
             <img className='img-2'  src={require('./images/Ellipse 32.png')} alt="right dot"/>
-            <Validation trigger={valid}>
-                <div className='card-message'>
-                    <h3>{message.status}</h3>
-                    <p>{message.message}</p>
-                    <button onClick={()=>setValid(false)}>ok</button> 
-                </div>
-                
-            </Validation>
         </main>
     </React.Fragment>
     );
@@ -116,10 +107,3 @@ if(getUserDetails){
 
 export default Signup;
 
-const Validation=(props)=>{
-    return(props.trigger)?(
-        <div className='popupCard'>
-            {props.children}
-        </div>
-    ):""
-}

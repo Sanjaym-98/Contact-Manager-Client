@@ -20,17 +20,18 @@ const HomePage = () => {
     const [deleteArr, setDeleteArr] = useState([])
     const [contactsArr, setContactsArr] = useState([])
 
-    const token = JSON.parse(localStorage.getItem("token"))
+    const token = JSON.parse(localStorage.getItem("token"));
     useEffect(() => {
         fetchContacts()
     }, [])
     function fetchContacts() {
-        axios('https://localhost/app/v1/contacts', {
-            method: 'get',
+        axios('http://localhost/api/v1/contacts', {
+             method: 'GET',
             headers: {
                 "Authorization": token
             }
         }).then((result) => {
+            console.log(result)
             setContactsArr(result.data.data)
         }).catch((e) => {
             console.log(e)
