@@ -6,9 +6,10 @@ import "./cards.css"
 
 const ImportCard = (props) => {
     const { setInvokeImport, fetchContacts } = useContext(GlobalContext)
-    const token = JSON.parse(localStorage.getItem("token"))
+   const token = JSON.parse(localStorage.getItem("token"))
 
     const handleCSVFile=(e)=>{
+        console.log("Enter handle csv")
         e.preventDefault()
         setInvokeImport(false)
         Array.from(e.dataTransfer.files).map(async (data)=>{
@@ -17,8 +18,8 @@ const ImportCard = (props) => {
             let result = parse(text, {header:true})
             console.log(result)
             
-            axios('https://localhost:5000/app/v1/contacts',{
-            method:"post",
+            axios('http://localhost:5000/api/v1/contacts',{
+            method:"POST",
             headers:{
                 "Authorization":token
             },
