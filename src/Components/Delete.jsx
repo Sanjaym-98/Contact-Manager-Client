@@ -20,7 +20,9 @@ const DeleteCard = (props) => {
             },
             data:deleteArr
         })
-        .then((res)=> fetchContacts())
+        .then((res)=>{ 
+            console.log("entered delete")
+            fetchContacts()})
         .catch((e)=>console.log(e))
         }
 
