@@ -25,14 +25,15 @@ const HomePage = () => {
         fetchContacts()
     }, [])
     function fetchContacts() {
-        axios('http://localhost/api/v1/contacts', {
+        axios('http://localhost:5000/api/v1/contacts', {
              method: 'GET',
             headers: {
                 "Authorization": token
             }
         }).then((result) => {
+            console.log("entered fetchdata")
             console.log(result)
-            setContactsArr(result.data.data)
+            setContactsArr(result.data.contacts)
         }).catch((e) => {
             console.log(e)
         })

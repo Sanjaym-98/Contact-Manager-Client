@@ -4,7 +4,7 @@ import "./contacts.css"
 
 const Contacts = () => {
 
-    const { setInvokeImport, contactsArr, setContactsArr, setDeleteArr, setInvokeDelete } = useContext(GlobalContext)
+    const { setInvokeImport, contactsArr, setContactsArr, setDeleteArr, setInvokeDelete, handleDeleteMany } = useContext(GlobalContext)
 
     const handleCheckbox = (e) => {
         const { id, checked } = e.target
@@ -35,6 +35,7 @@ const Contacts = () => {
                         <button onClick={() => {
                             setInvokeImport(false)
                             setInvokeDelete(true)
+                            handleDeleteMany()
                         }}>Delete</button>
                         <button>Export</button>
                     </div>
