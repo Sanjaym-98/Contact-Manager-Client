@@ -1,22 +1,17 @@
 .mainContainer{
-    background-color: yellow;
+    background-color: white;
     display: flex;
     flex-direction: row;
     text-align: center;
     color: white;
     font-weight: bold;
+    width: 100vw;
+    height: 100vh;
 }
 
-.aside{
-    width: 25vw;
-    background-color: rgb(184, 234, 239);
-    height: 100vh;
-    border: 2px solid black;
-    border-radius: 12px;
-}
 
 .bodycontainer{
-    width: 75vw;
+    width: 84vw;
     background-color: whitesmoke;
     height: 100vh;
 }
@@ -28,16 +23,22 @@
 } */
 .contentbody{
     background-color: white;
-    border: 2px solid black;
+    border: 0px solid black;
     border-radius: 12px;
     display: flex;
     justify-content: center;
+    width: 83vw;
+   
+    
+}
+table{
+    width: 82vw;
 }
 table, th{
     border: 1px solid;
     border-collapse: collapse;
-    width: 70vw;
-    background-color: rgb(96, 117, 211);
+    width: 82vw;
+    background-color: rgb(108, 169, 234);
     height: 24px;
     margin: 4px;
     
