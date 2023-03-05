@@ -17,7 +17,7 @@ const Header = () =>{
         fetchContacts()
     }
     else {
-      axios(`http://localhost:5000/api/v1/contacts/${search}`, {
+      axios(`https://contactmanager-22.onrender.com/api/v1/contacts/${search}`, {
         method: "get",
         headers: {
           "Authorization": JSON.parse(localStorage.getItem("token"))
