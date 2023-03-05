@@ -80,3 +80,19 @@ h3{
     background-color: white;
     border-radius: 10px;
 }
+.searchBar{
+    width: 27vw;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border: 1px solid grey;
+
+
+}
+.imgh{
+    background-color: whitesmoke;
+    padding: 8px;
+    height: 42px;
+    margin-right: 4px;
+    border-radius: 60px;
+    border: 5px solid lightblue;
+}

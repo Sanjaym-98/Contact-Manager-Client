@@ -110,20 +110,28 @@
     font-family: Open Sans;
     color: #7D8CC4; 
 }
-.inputBox{
+/* .inputBox{
     width: 100%;
     position:relative;
   
+} */
+.inputBoxp{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 3px;
 }
-.visibility{
+/* .visibility{
     position: absolute;
     right: 0%;
     top: 20%;
-}
-.icons{
-    position: absolute;
-    left: 3%;
-    top: 20%;
+} */
+/* .icons{
+    background-color: white;
+} */
+.icond{
+    margin-left: 3px;
 }
 
 .m-2 {
@@ -135,4 +143,10 @@
     width: 255px;
     height: 25px;
     border-radius: 5px;
+}
+.formdata{
+flex-direction: column;
+display: flex;
+justify-content: center;
+align-items: center;
 }

@@ -10,7 +10,7 @@ import LockIcon from '@mui/icons-material/Lock';
 
 
 const Signup =(props)=> {
-//   const navigate = useNavigate()
+  const navigate = useNavigate()
   const [data, setData] = useState({email:"",password:"", confirmPassword:""}) 
   const [confirmPassword, setCofirmPassword] = useState("")
   const [valid, setValid] = useState(false)
@@ -24,8 +24,10 @@ const Signup =(props)=> {
   const handleSubmit=async(e)=>{
     e.preventDefault()
     if(confirmPassword=== data.password){
+        setCofirmPassword(false)
         if(data.password.length < 6){
             setMessage({status:"Note!",message:"Password length should be minimum 6 charecters and above "})
+            // alert("Password length should be minimum 6 charecters and above")
             setValid(true)
         }
         else{
@@ -34,8 +36,13 @@ const Signup =(props)=> {
             .then(result=>{
                 console.log(data)
                 console.log(result)
+                
                 setData({email:"", password:""})
                 setCofirmPassword("")
+                setValid(false)
+                if(result){
+                    navigate("/")
+                }
            
             }).catch((e)=>{
              
@@ -44,6 +51,10 @@ const Signup =(props)=> {
             }) 
         }
        
+    }else{
+        setValid(false)
+        setCofirmPassword(true)
+        // alert("password and confirm password needs to be matched")
     }
  
 }
@@ -79,8 +90,14 @@ const Signup =(props)=> {
                                                     <input className='form-control m-2 px-5' type="password" name='confirmPassword' placeholder='Confirm Password' required value={confirmPassword} onChange={(e) => setCofirmPassword(e.target.value)} />
                                                     <EnhancedEncryptionIcon className='icons'/>
                                                     </div>
+                                                    { valid ? <div>
+                                                        <small style={{color:"red"}}>Check Password Length</small>
+                                                    </div> : ""}
+                                                    {confirmPassword && !valid ? <small style={{color:"red"}}>Passwords was not matched</small> : ""}
+                                                    <div className='btnc'>
                                                     <button className='signin m-2 p-1 rounded-2'>Sign Up</button>
-                                                    <Link to={'/'}><button className='signUp m-2 p-1 rounded-2'>Sign In</button></Link>
+                                                    <Link to={'/'}>  <button className='signUp m-2 p-1 rounded-2'>Sign In</button></Link>
+                                                    </div>
                                                     
                                                 </form>
                                             </div>

@@ -3,7 +3,7 @@ import { GlobalContext } from "./HomePage";
 import "./contacts.css"
 import IosShareIcon from '@mui/icons-material/IosShare';
 import FilterListSharpIcon from '@mui/icons-material/FilterListSharp';
-import { red, blue, grey } from '@mui/material/colors';
+import { red, blue } from '@mui/material/colors';
 import DeleteOutlineSharpIcon from '@mui/icons-material/DeleteOutlineSharp';
 import ModeEditOutlinedIcon from '@mui/icons-material/ModeEditOutlined';
 import CalendarMonthSharpIcon from '@mui/icons-material/CalendarMonthSharp';
@@ -11,7 +11,7 @@ import ExpandMoreSharpIcon from '@mui/icons-material/ExpandMoreSharp';
 import ImportExportSharpIcon from '@mui/icons-material/ImportExportSharp';
 const Contacts = () => {
 
-    const { setInvokeImport, contactsArr, setContactsArr, setDeleteArr, setInvokeDelete, handleDeleteMany, handleDelete } = useContext(GlobalContext)
+    const { setInvokeImport, contactsArr, setContactsArr, setDeleteArr, setInvokeDelete, handleDeleteMany } = useContext(GlobalContext)
 
     const handleCheckbox = (e) => {
         const { id, checked } = e.target
@@ -49,7 +49,7 @@ const Contacts = () => {
 
                             }}>
                                 <ImportExportSharpIcon></ImportExportSharpIcon>
-                                <p className="headBtn" > Import</p>
+                                <p id="headBtn" className="headBtn" > Import</p>
                             </div>
                             <div className="headerCmn decH" onClick={() => {
                                 setInvokeImport(false)
@@ -121,10 +121,10 @@ const Contacts = () => {
                                             <button className='btn' id={data._id} >
                                                 <ModeEditOutlinedIcon sx={{ fontSize: 18, color: blue[300] }}></ModeEditOutlinedIcon> <hr />
                                                 <DeleteOutlineSharpIcon sx={{ fontSize: 20, color: red[300] }} onClick={(e) => {
-                                            setInvokeDelete(true)
-                                            setDeleteArr([data._id])
-                                        }
-                                        }  className='sucess' />
+                                                    setInvokeDelete(true)
+                                                    setDeleteArr([data._id])
+                                                }
+                                                } className='sucess' />
 
                                             </button></td>
                                     </tr>
