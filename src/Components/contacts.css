@@ -45,7 +45,7 @@ tbody .btn:nth-child(odd){
 }
 
 #tableh{
-    width: 75vw;
+    width: 81vw;
 }
 .calender{
     color: black;
@@ -60,9 +60,10 @@ tbody .btn:nth-child(odd){
     border: 1px solid lightgrey;
     width: 9rem;
     border-radius: 12px;
-    background-color: whitesmoke;
+    background-color: white;
     margin-left: 4px;
     margin-right: 4px;
+    box-shadow: 6px 4px 4px lightgrey;
 }
 .btncontainers{
     display: flex;
@@ -72,15 +73,17 @@ tbody .btn:nth-child(odd){
 }
 .headBtn{
     border: 0px;
-    background-color: whitesmoke;
+    background-color: white;
     
 }
+
 .leftBtns{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: left;
+    margin-right: 18rem;
 }
+
 .rightBtns{
     display: flex;
     flex-direction: row;
@@ -95,6 +98,10 @@ tbody .btn:nth-child(odd){
 .tooltip {
     position: relative;
     display: inline-block;
+    margin-top: 4px;
+    cursor: pointer;
+
+    
   }
   
   .tooltip .tooltiptext {
@@ -105,6 +112,14 @@ tbody .btn:nth-child(odd){
     text-align: center;
     border-radius: 6px;
     padding: 5px 0;
+    margin-top: 12px;
+    padding: 4px;
+    border-radius: 0px;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    margin-left: 2px;
+    cursor: pointer;
   
     /* Position the tooltip */
     position: absolute;
@@ -113,6 +128,8 @@ tbody .btn:nth-child(odd){
   
   .tooltip:hover .tooltiptext {
     visibility: visible;
+    cursor: pointer;
+
   }
 .btn{
     border: 0px;
