@@ -30,7 +30,7 @@ const HomePage = () => {
         fetchContacts()
     }, [])
     function fetchContacts() {
-        axios('https://contact-manager-enmu.onrender.com/api/v1/contacts', {
+        axios('https://contactmanagerbackend-w58d.onrender.com/api/v1/contacts', {
              method: 'GET',
             headers: {
                 "Authorization": token

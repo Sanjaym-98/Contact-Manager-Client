@@ -17,7 +17,7 @@ const DeleteCard = (props) => {
     const handleDelete=async()=>{
        console.log("delete",deleteArr)
         setInvokeDelete(false);
-            axios('https://contact-manager-enmu.onrender.com/api/v1/contacts', {
+            axios('https://contactmanagerbackend-w58d.onrender.com/api/v1/contacts', {
             method:"delete",
             headers:{
                 "Content-Type":"Application/json",

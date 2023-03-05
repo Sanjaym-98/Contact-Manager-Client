@@ -22,7 +22,7 @@ const ImportCard = (props) => {
             let result = parse(text, {header:true})
             console.log(result)
             
-            axios('https://contact-manager-enmu.onrender.com/api/v1/contacts',{
+            axios('https://contactmanagerbackend-w58d.onrender.com/api/v1/contacts',{
             method:"POST",
             headers:{
                 "Authorization":token
