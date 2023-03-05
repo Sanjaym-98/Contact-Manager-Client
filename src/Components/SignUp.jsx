@@ -31,7 +31,7 @@ const Signup =(props)=> {
             setValid(true)
         }
         else{
-            axios.post('https://contactmanager-22.onrender.com/api/v1/register', data)
+            axios.post('https://contact-manager-enmu.onrender.com/api/v1/register', data)
             
             .then(result=>{
                 console.log(data)
