@@ -8,6 +8,7 @@ import axios from "axios";
 import SideBar from "./SideBar";
 import ImportSuccessCard from "./ImportSuccess";
 import DeleteSuccessCard from "./DeleteSuccess";
+import JsPDF from 'jspdf';
 
 
 
@@ -23,6 +24,7 @@ const HomePage = () => {
     const [delSuc, setDelSuc] = useState(false)
     const [deleteArr, setDeleteArr] = useState([])
     const [contactsArr, setContactsArr] = useState([])
+    let [page, setPage] = useState(1)
     
     console.log("importSuccess",invSuc)
     const token = JSON.parse(localStorage.getItem("token"));
@@ -30,7 +32,7 @@ const HomePage = () => {
         fetchContacts()
     }, [])
     function fetchContacts() {
-        axios('https://contactmanager-22.onrender.com/api/v1/contacts', {
+        axios(`https://contactmanager-22.onrender.com/api/v1/contacts?page=${page}`, {
              method: 'GET',
             headers: {
                 "Authorization": token
@@ -61,6 +63,13 @@ const HomePage = () => {
         setDeleteArr([e.target.id])
         console.log("deletARRAY",deleteArr)     
     }
+    const generatePDF = () => {
+
+        const report = new JsPDF('portrait','pt','a4');
+        report.html(document.querySelector('#contentbody')).then(() => {
+            report.save('contacts.pdf');
+        });
+    }
     
     //handle delete multiple by checkbox
     const handleDeleteMany=()=>{
@@ -74,10 +83,22 @@ const HomePage = () => {
         setDeleteArr(tempArr)
     }
     
+    const handlePrev = () =>{
+        if(page >1){
+            setPage(page-= 1)
+        }
+        fetchContacts()
+        
+    }
+    const handleNext = () =>{
+        setPage(page += 1)
+        console.log(page)
+        fetchContacts()
+    }
 
     console.log(invokeImport)
     return (
-        <GlobalContext.Provider value={{ delSuc, setDelSuc,handleDelete,invokeDeleteSuccess,setInvokeDeleteSuccess,invSuc, setInvSuc,deleteArr, handleDeleteMany, setDeleteArr, setContactsArr, contactsArr, invokeImport, setInvokeImport, invokeDelete,setInvokeDelete, fetchContacts}} >
+        <GlobalContext.Provider value={{generatePDF,page, delSuc, setDelSuc,handleDelete,invokeDeleteSuccess,setInvokeDeleteSuccess,invSuc, setInvSuc,deleteArr, handleDeleteMany, setDeleteArr, setContactsArr, contactsArr, invokeImport, setInvokeImport, invokeDelete,setInvokeDelete, fetchContacts}} >
         <div className="mainContainer">
         
 
@@ -93,6 +114,11 @@ const HomePage = () => {
                      
                     
                      <Contacts />
+                </div>
+                <div className="pagination">
+                    <span onClick={handlePrev}>  prev </span>
+                    <span>{page}</span>
+                    <span onClick={handleNext}> next  </span>
                 </div>
                 
             </div>

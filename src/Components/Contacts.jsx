@@ -9,6 +9,8 @@ import ModeEditOutlinedIcon from '@mui/icons-material/ModeEditOutlined';
 import CalendarMonthSharpIcon from '@mui/icons-material/CalendarMonthSharp';
 import ExpandMoreSharpIcon from '@mui/icons-material/ExpandMoreSharp';
 import ImportExportSharpIcon from '@mui/icons-material/ImportExportSharp';
+import JsPDF from 'jspdf';
+
 const Contacts = () => {
 
     const { setInvokeImport, contactsArr, setContactsArr, setDeleteArr, setInvokeDelete, handleDeleteMany } = useContext(GlobalContext)
@@ -25,6 +27,15 @@ const Contacts = () => {
         }
 
     }
+        const generatePDF = () => {
+
+            const report = new JsPDF('portrait','pt','a4');
+            report.html(document.querySelector('#cont')).then(() => {
+                report.save('contacts.pdf');
+            });
+        }
+    
+    
     return (
         <div>
             <>
@@ -59,7 +70,7 @@ const Contacts = () => {
                                 <DeleteOutlineSharpIcon></DeleteOutlineSharpIcon>
                                 <p className="headBtn" > Delete</p>
                             </div>
-                            <div className="headerCmn decH">
+                            <div  onClick={generatePDF} className="headerCmn decH">
                                 <IosShareIcon></IosShareIcon>
                                 <p className="headBtn" >Export</p>
 
@@ -92,7 +103,7 @@ const Contacts = () => {
                             <th scope="col">Action</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="cont">
                         {
                             contactsArr.map((data, i) => {
                                 return (
