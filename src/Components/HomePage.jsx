@@ -32,7 +32,7 @@ const HomePage = () => {
         fetchContacts()
     }, [])
     function fetchContacts() {
-        axios('https://contactmanager-22.onrender.com/api/v1/contacts', {
+        axios(`https://contactmanager-22.onrender.com/api/v1/contacts?page=${page}`, {
              method: 'GET',
             headers: {
                 "Authorization": token
