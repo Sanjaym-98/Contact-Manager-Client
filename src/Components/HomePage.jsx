@@ -110,7 +110,7 @@ const HomePage = () => {
                     
                     <Header />
                 </div>
-                <div className="contentbody">
+                <div id="contentbody" className="contentbody">
                      
                     
                      <Contacts />
