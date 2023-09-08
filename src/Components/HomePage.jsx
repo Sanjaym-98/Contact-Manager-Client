@@ -91,8 +91,12 @@ const HomePage = () => {
         
     }
     const handleNext = () =>{
-        setPage(page += 1)
+        if(contactsArr.length == 8){
+            setPage(page += 1)
+        }
+        
         console.log(page)
+        console.log(contactsArr.length)
         fetchContacts()
     }
 

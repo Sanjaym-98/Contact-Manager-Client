@@ -50,6 +50,10 @@ const Contacts = () => {
                             <div className="headerCmn decH">
                                 <FilterListSharpIcon></FilterListSharpIcon>
                                 <p> Filter |</p>
+                                <select>
+                                    <option>Name</option>
+                                    <option>Email</option>
+                                </select>
                                 <ExpandMoreSharpIcon></ExpandMoreSharpIcon>
                             </div>
                         </div>
