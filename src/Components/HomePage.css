@@ -52,8 +52,11 @@ table, th{
     color: black;
     margin-top: 24px;
     position: fixed;
-    bottom: 10vh;
+    bottom: 10px;
     left: 50%;
+    background-color: rgb(224, 245, 245);
+    padding: 4px;
+    border-radius: 10px;
 }
 .pagination > span{
     background-color: rgb(76, 120, 181);
